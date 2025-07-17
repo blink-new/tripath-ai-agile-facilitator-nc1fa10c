@@ -7,7 +7,8 @@ import {
   CheckSquare, 
   Users,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Target
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -28,7 +29,8 @@ export function Sidebar({ activeTab, onTabChange, language }: SidebarProps) {
       standups: 'Daily Stand-ups',
       communication: 'Team Chat',
       reports: 'Reports & Analytics',
-      backlog: 'Backlog Management'
+      backlog: 'Backlog Management',
+      timeline: 'Product Timeline'
     },
     es: {
       dashboard: 'Panel Principal',
@@ -36,7 +38,8 @@ export function Sidebar({ activeTab, onTabChange, language }: SidebarProps) {
       standups: 'Stand-ups Diarios',
       communication: 'Chat del Equipo',
       reports: 'Reportes y Análisis',
-      backlog: 'Gestión de Backlog'
+      backlog: 'Gestión de Backlog',
+      timeline: 'Timeline del Producto'
     }
   }
 
@@ -45,6 +48,7 @@ export function Sidebar({ activeTab, onTabChange, language }: SidebarProps) {
   const menuItems = [
     { id: 'dashboard', label: t.dashboard, icon: LayoutDashboard },
     { id: 'sprints', label: t.sprints, icon: Calendar },
+    { id: 'timeline', label: t.timeline, icon: Target },
     { id: 'standups', label: t.standups, icon: MessageSquare },
     { id: 'communication', label: t.communication, icon: Users },
     { id: 'backlog', label: t.backlog, icon: CheckSquare },
@@ -100,7 +104,7 @@ export function Sidebar({ activeTab, onTabChange, language }: SidebarProps) {
       {!collapsed && (
         <div className="p-4 border-t">
           <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+            <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
             <span>System Online</span>
           </div>
         </div>

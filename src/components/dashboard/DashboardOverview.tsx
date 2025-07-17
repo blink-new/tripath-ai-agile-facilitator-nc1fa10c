@@ -106,19 +106,19 @@ export function DashboardOverview({ language }: DashboardOverviewProps) {
 
   const getRoleColor = (role: string) => {
     switch (role) {
-      case 'tech': return 'bg-blue-500'
-      case 'ceo': return 'bg-purple-500'
-      case 'sales': return 'bg-green-500'
-      default: return 'bg-gray-500'
+      case 'tech': return 'bg-primary'
+      case 'ceo': return 'bg-secondary-900'
+      case 'sales': return 'bg-accent'
+      default: return 'bg-muted-foreground'
     }
   }
 
   const getActivityIcon = (type: string) => {
     switch (type) {
-      case 'success': return <CheckCircle className="h-4 w-4 text-green-500" />
-      case 'warning': return <AlertTriangle className="h-4 w-4 text-teal-600" />
-      case 'info': return <Clock className="h-4 w-4 text-blue-500" />
-      default: return <Clock className="h-4 w-4 text-gray-500" />
+      case 'success': return <CheckCircle className="h-4 w-4 text-accent" />
+      case 'warning': return <AlertTriangle className="h-4 w-4 text-accent" />
+      case 'info': return <Clock className="h-4 w-4 text-primary" />
+      default: return <Clock className="h-4 w-4 text-muted-foreground" />
     }
   }
 
@@ -136,7 +136,7 @@ export function DashboardOverview({ language }: DashboardOverviewProps) {
           <Card key={index}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">{kpi.name}</CardTitle>
-              <TrendingUp className={`h-4 w-4 ${kpi.trend === 'up' ? 'text-green-500' : 'text-red-500'}`} />
+              <TrendingUp className={`h-4 w-4 ${kpi.trend === 'up' ? 'text-accent' : 'text-destructive'}`} />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -180,19 +180,19 @@ export function DashboardOverview({ language }: DashboardOverviewProps) {
 
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-green-500" />
+                <div className="h-3 w-3 rounded-full bg-accent" />
                 <span>{t.completed}: {currentSprint.tasksCompleted}</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-blue-500" />
+                <div className="h-3 w-3 rounded-full bg-primary" />
                 <span>{t.inProgress}: {currentSprint.tasksInProgress}</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-red-500" />
+                <div className="h-3 w-3 rounded-full bg-destructive" />
                 <span>{t.blocked}: {currentSprint.tasksBlocked}</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-gray-300" />
+                <div className="h-3 w-3 rounded-full bg-muted-foreground" />
                 <span>Total: {currentSprint.tasksTotal}</span>
               </div>
             </div>
@@ -220,7 +220,7 @@ export function DashboardOverview({ language }: DashboardOverviewProps) {
                         </AvatarFallback>
                       </Avatar>
                       <div className={`absolute -bottom-1 -right-1 h-3 w-3 rounded-full border-2 border-background ${
-                        member.isOnline ? 'bg-green-500' : 'bg-gray-400'
+                        member.isOnline ? 'bg-accent' : 'bg-muted-foreground'
                       }`} />
                     </div>
                     <div>

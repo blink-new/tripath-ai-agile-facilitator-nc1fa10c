@@ -3,6 +3,7 @@ import { Header } from '@/components/layout/Header'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { DashboardOverview } from '@/components/dashboard/DashboardOverview'
 import { SprintPlanning } from '@/components/sprints/SprintPlanning'
+import { ProductTimeline } from '@/components/timeline/ProductTimeline'
 import { blink } from '@/blink/client'
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
         return <DashboardOverview language={language} />
       case 'sprints':
         return <SprintPlanning language={language} />
+      case 'timeline':
+        return <ProductTimeline language={language} />
       case 'standups':
         return (
           <div className="flex items-center justify-center h-64">

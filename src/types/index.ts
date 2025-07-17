@@ -80,3 +80,23 @@ export interface KPI {
   period: 'daily' | 'weekly' | 'monthly'
   updatedAt: string
 }
+
+export interface TimelineItem {
+  id: string
+  name: string
+  dueDate?: string
+  completed: boolean
+  children?: TimelineItem[]
+  type: 'milestone' | 'task' | 'deliverable'
+  description?: string
+  expanded?: boolean
+}
+
+export interface ProductTimeline {
+  id: string
+  title: string
+  description?: string
+  items: TimelineItem[]
+  createdAt: string
+  updatedAt: string
+}
